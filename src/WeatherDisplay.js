@@ -22,11 +22,17 @@ const WeatherDisplay = ({ data, location, selectedDay }) => {
 
   // Find the day data corresponding to the selectedDay
   const selectedDayData = data.days.find(day => {
-    const dayDate = new Date(day.datetime);
-    return dayDate.getFullYear() === selectedDate.getFullYear() &&
-           dayDate.getMonth() === selectedDate.getMonth() &&
-           dayDate.getDate() === selectedDate.getDate();
-  });
+    // Extract the date part without the time component
+    const dayDateWithoutTime = day.datetime.split('T')[0];
+    const dayDate = new Date(dayDateWithoutTime);
+    
+    // Strip the time component from selectedDate
+    const selectedDateWithoutTime = selectedDate.toISOString().split('T')[0];
+    const datePassed = new Date(selectedDateWithoutTime);
+
+    // Compare the dates
+    return dayDate.getTime() === datePassed.getTime();
+});
 
   // Find the index of the selected day data
   const selectedDayIndex = data.days.indexOf(selectedDayData);
@@ -34,15 +40,15 @@ const WeatherDisplay = ({ data, location, selectedDay }) => {
 
   // Get the day data for the day of the week after the selected day
   const nextWeekDayData = data.days[nextWeekDayIndex];
-  const nextWeekDayOfWeek = new Date(nextWeekDayData.datetime).toLocaleDateString('en-US', { weekday: 'long' });
+  const nextWeekDayOfWeek = new Date(nextWeekDayData.datetime).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' });
 
   // Use the selected day data and next week's data to display weather information
   const selectedDayWeather = getWeatherMessage(selectedDayData.temp, selectedDayData.humidity, selectedDayData.windspeed);
   const selectedDayOfWeek = selectedDate.toLocaleDateString('en-US', { weekday: 'long' });
   const nextWeekDayWeather = getWeatherMessage(nextWeekDayData.temp, nextWeekDayData.humidity, nextWeekDayData.windspeed);
 
-  const selectedDayFormatted = new Date(selectedDayData.datetime).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
-  const nextWeekDayFormatted = new Date(nextWeekDayData.datetime).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+  const selectedDayFormatted = new Date(selectedDayData.datetime).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' });
+const nextWeekDayFormatted = new Date(nextWeekDayData.datetime).toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' });
 
 
   return (
