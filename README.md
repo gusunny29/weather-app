@@ -1,3 +1,37 @@
+"
+
+# Welcome to my weather application
+
+This project was definietly one I was excited to attempt and complete.
+I used JavaScript with React through the entire project and used MaterialUI to style my components.
+I used chart.js to style my weather charts for the day input from the user
+
+The Public APIs I used were Visual Crossing API to access the weather data needed for each location and I also used
+OpenCage API to access the city/state/country data from the location input from the text input
+
+Nice parts of the application:
+
+- Material UI and Chart.js allowed for ease of comfort with styling my input components and provided a seamless and smooth UI experience
+- With the day requested by the user and the following week, you can see some conditions that correlate with that given day such as wind speed, humidity and precipitation percentage
+
+  - In making the application even more informative, the API calls to Visual Crossing really provided a multitude of information and I think it would be great to include more information
+    so the user can plan more accordingly with more information about the weather
+  - Ability to look at weather at any part of the day, to make more informative decisions about when the user wants to host their event
+  - The graphs can be isolated (currently can see Temp, humidity and wind speed information all at once) to hone in on a certain detail about the day that you want to look more specifically at
+
+- Improvements to be made in the future
+
+  - Crisp up the styling, I think the application definitely gets the job done with the information that is given to you, but more appealing styling can always be done
+  - Implement a mobile application part of the assignment, there only is a web application at the moment but shifting this over to IOS development is definitely a possibility
+  - Definietly can have users save mulitple locations to allow tracking of different places they may want to plan their events
+
+- Self criticisms
+
+  - I think I can do a better job with refactoring some of the code I wrote and I think I can reduce the code duplication, perhaps combining the code for these two charts into a helper function and passing the corresponding fields into the function
+  - I said it before but styling, I think to flush out the project to its highest degree, styling is always a crucial part in attracting clients/users and making their experience as seamless as possible
+
+  Overall, these are just my quick thoughts but I thoroughly enjoyed this process and look forwards to hearing what you guys have to think about it
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
