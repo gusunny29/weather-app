@@ -98,7 +98,7 @@ const WeatherDisplay = ({ data, location, selectedDay }) => {
         </Box>
         <Box display="flex" justifyContent="center" textAlign="center" mb={2}>
           <Typography variant="h6">
-            This {selectedDayOfWeek} ({selectedDayFormatted})
+            This {selectedDayFormatted}
           </Typography>
         </Box>
         <Box display="flex" alignItems="center">
@@ -122,7 +122,7 @@ const WeatherDisplay = ({ data, location, selectedDay }) => {
       <Grid item xs={12}>
         <Box display="flex" justifyContent="center" textAlign="center" mb={2}>
           <Typography variant="h6">
-            Next {nextWeekDayOfWeek} ({nextWeekDayFormatted})
+            Next {nextWeekDayOfWeek}
           </Typography>
         </Box>
         <Box display="flex" alignItems="center">
